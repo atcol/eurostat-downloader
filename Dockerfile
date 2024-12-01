@@ -11,7 +11,7 @@ COPY --from=planner /app/recipe.json .
 RUN cargo chef cook --release
 COPY . .
 RUN cargo build --release
-RUN mv ./target/release/<your-crate> ./app
+RUN mv ./target/release/eurostat-downloader ./app
 
 FROM debian:stable-slim AS runtime
 WORKDIR /app
